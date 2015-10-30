@@ -7,3 +7,10 @@
    `(if (null ,lst)
         (setf ,lst (list ,el))
       (nconc ,lst (list ,el))))
+
+
+(defmacro preplace (str old new)
+  "python: 'hoge_fuga'.replace('_', ' ')
+  eus: (preplace \"hoge_fuga\" #\_ #\ )"
+  (substitute new old str)
+  )
